@@ -461,3 +461,100 @@ app-footer {
 .p-rating .p-rating-icon.pi-star-fill {
   color: #1565C0;
 }
+
+/*----------------------------------------------------------*/
+
+/* Styles I added for the products-admin component */
+/* Margins of the table */
+.p-datatable {
+  margin-top: 12px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/* Background color of the toolbar */
+.p-toolbar {
+  background: white;
+  border: white;
+}
+
+/* Color of the button New */
+.p-button.p-button-success:enabled, 
+.p-buttonset.p-button-success > .p-button:enabled, 
+.p-splitbutton.p-button-success > .p-button:enabled {
+  background: #28a745;
+  color: #ffffff;
+  border-color: #28a745;
+}
+
+.p-button.p-button-success:enabled:hover, 
+.p-buttonset.p-button-success > .p-button:enabled:hover, 
+.p-splitbutton.p-button-success > .p-button:enabled:hover {
+  background: #228B22;
+  color: #ffffff;
+  border-color: #228B22;
+}
+
+/* Color of the button Delete */
+.p-button.p-button-danger:enabled, 
+.p-buttonset.p-button-danger > .p-button:enabled, 
+.p-splitbutton.p-button-danger > .p-button:enabled {
+  background: #d6d6d6;
+  border-color: #d6d6d6;
+  color: #495057;
+}
+
+.p-button.p-button-danger:enabled:hover, 
+.p-buttonset.p-button-danger > .p-button:enabled:hover, 
+.p-splitbutton.p-button-danger > .p-button:enabled:hover {
+  background: #808080;
+  border-color: #808080;
+  color: #495057;
+}
+
+/* Color of the button Help */
+.p-button.p-button-help, 
+.p-buttonset.p-button-help > .p-button, 
+.p-splitbutton.p-button-help > .p-button {
+  background: #1565C0;
+  color: #ffffff;
+  border-color: #87CEFA;
+}
+
+/* Background color of the table header */
+.p-datatable .p-datatable-thead > tr > th {
+  background: white;
+}
+
+/* Color of the pencil and trash button */
+.p-button {
+  background: none;
+}
+
+.p-button:hover {
+  background: none;
+}
+
+/* Border of the checkbox of each row */
+.p-checkbox .p-checkbox-box {
+  border: 2px solid #495057;
+}
+
+/* Color of the table lines */
+.p-datatable-gridlines .p-datatable-thead > tr > th,
+.p-datatable-gridlines .p-datatable-tbody > tr > td,
+.p-datatable-gridlines .p-datatable-tfoot > tr > td {
+    border-color: #C0C0C0; 
+}
+
+/*----------------------------------------------------------*/
+
+/* Styles I added for the products-admin component */
+/* The border is a circle for the focused page number */
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  border-radius: 50%;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  border-radius: 50%;
+}

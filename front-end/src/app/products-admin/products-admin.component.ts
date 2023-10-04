@@ -19,4 +19,9 @@ export class ProductsAdminComponent implements OnInit {
     this.products = this.productService.products;
   }
 
+  getRowClass(index: number): object {
+    const backgroundColor = index % 2 === 0 ? '#ffffff' : '#d6d6d6';
+    return { 'background-color': backgroundColor };
+  }
+
 }
