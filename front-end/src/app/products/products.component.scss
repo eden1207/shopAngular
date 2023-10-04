@@ -1,0 +1,34 @@
+.product-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-sort-search {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+
+.cards {
+    border: 1px green solid;
+    width: 60%;
+    margin-left: 25%;
+    margin-top: 50px;
+    /*display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;*/
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px gray solid;
+    width: 30%;
+    height: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
