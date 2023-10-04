@@ -430,3 +430,34 @@ app-footer {
     left: 0 !important;
   }
 }
+
+/*----------------------------------------------------------*/
+
+/* Styles I added for the products component */
+/* Header-background */
+.p-dataview .p-dataview-header {
+  background: white;
+}
+
+/* Buttons of the header */
+.p-selectbutton .p-button.p-highlight:hover {
+  background: #808080;
+  border-color: #808080;
+  color: #495057;
+}
+
+.p-selectbutton .p-button.p-highlight {
+  background: #A9A9A9;
+  border-color: #A9A9A9;
+  color: #495057;
+}
+
+/* Cart button */
+.p-button {
+  background: #1565C0;
+  border: none;
+}
+
+.p-rating .p-rating-icon.pi-star-fill {
+  color: #1565C0;
+}
