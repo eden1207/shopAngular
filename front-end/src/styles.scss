@@ -441,19 +441,19 @@ app-footer {
 
 /* Buttons of the header */
 .p-selectbutton .p-button.p-highlight:hover {
-  background: #808080;
-  border-color: #808080;
-  color: #495057;
-}
-
-.p-selectbutton .p-button.p-highlight {
   background: #A9A9A9;
   border-color: #A9A9A9;
   color: #495057;
 }
 
+.p-selectbutton .p-button.p-highlight {
+  background: #d6d6d6;
+  border-color: #d6d6d6;
+  color: #495057;
+}
+
 /* Cart button */
-.p-button {
+.p-dataview-content .p-button {
   background: #1565C0;
   border: none;
 }
@@ -529,10 +529,12 @@ app-footer {
 /* Color of the pencil and trash button */
 .p-button {
   background: none;
+  border: none;
 }
 
 .p-button:hover {
   background: none;
+  border: none;
 }
 
 /* Border of the checkbox of each row */
@@ -545,6 +547,11 @@ app-footer {
 .p-datatable-gridlines .p-datatable-tbody > tr > td,
 .p-datatable-gridlines .p-datatable-tfoot > tr > td {
     border-color: #C0C0C0; 
+}
+
+/* Icon of the two column search bars of the table */
+.p-datatable .p-column-filter-menu-button {
+  display: none;
 }
 
 /*----------------------------------------------------------*/

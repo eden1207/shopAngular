@@ -21,23 +21,28 @@
         [showCurrentPageReport]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10,25,50]"
+        [customSort]="true"
+        (sortFunction)="customSort($event)"
+        [globalFilterFields]="['code', 'name']"
     >
         <ng-template pTemplate="header">
             <tr>
                 <th style="width: 2rem">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th style="min-width:200px">code <p-sortIcon field="code"></p-sortIcon></th>
-                <th style="min-width:200px">name <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="code" style="min-width:200px">code <p-sortIcon field="code"></p-sortIcon></th>
+                <th pSortableColumn="name" style="min-width:200px">name <p-sortIcon field="name"></p-sortIcon></th>
                 <th style="min-width:100px">Actions</th>
             </tr>
             <tr>
                 <th></th>
                 <th>
-                    <input pInputText type="text" class="w-full" style="border-color:#808080">
+                    <!--<input pInputText type="search" class="w-full" style="border-color:#808080">-->
+                    <p-columnFilter type="text" field="code"></p-columnFilter>
                 </th>
                 <th>
-                    <input pInputText type="text" class="w-full" style="border-color:#808080">
+                    <!--<input pInputText type="search" class="w-full" style="border-color:#808080">-->
+                    <p-columnFilter type="text" field="name"></p-columnFilter>
                 </th>
                 <th></th>
             </tr>

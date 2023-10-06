@@ -367,6 +367,12 @@ export class ProductService {
 			"rating": 8
 		}
     ];
+
+    getAllProducts(): Product[] {
+        return this.products;
+    }
+
+
     /*getProductsData() {
         return [
             {
