@@ -1,4 +1,12 @@
 <div class="cards">
+    <!-- value: data injected in the array 
+        paginator: to provide the page number of the products array displayed
+        rows: number of products displayed
+        rowsPerPageOptions: to display the elements, here, by 10, 25 or 50 elements
+        showCurrentPageReport: to provide the three values of Showing {first} to {last} of {totalRecords} entries
+        currentPageReportTemplate: idem but for the message
+        layout: if you want to display the cards with a grid method
+        sortField, sortOrder: parameters used for the sorting function -->
     <p-dataView 
         [value]="filteredProducts" 
         [paginator]="true" 

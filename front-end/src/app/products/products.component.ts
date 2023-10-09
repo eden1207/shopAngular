@@ -3,12 +3,24 @@ import { Product } from '../../domain/product';
 import { ProductService } from '../../service/productservice';
 import { SelectItem } from 'primeng/api';
 
+/**
+ * Component to display the products page
+ */
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+
+  /** 
+   * products: array containing all the products data 
+   * filteredProducts: array containing all the products filtered by the searchBar
+   * productService: service used to manage the data thanks to different method (GET, POST, etc) 
+   * sortOptions: provides the list of sort options when you click on "Sort by" button
+   * sortOrder: to decide if you want to sort from 'A-Z' order or 'Z-A' for example
+   * sortField: to decide the name of the sort category
+   */
   products!: Product[];
 
   filteredProducts!: Product[];
@@ -21,10 +33,6 @@ export class ProductsComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
 
-  /*ngOnInit() {
-      this.productService.getProducts().then((data) => (this.products = data.slice(0, 5)));
-  }*/
-
   ngOnInit(): void{
     this.products = this.productService.getAllProducts();
 
@@ -36,6 +44,7 @@ export class ProductsComponent implements OnInit {
     ];
   }
 
+  // A commenter (Or PrimeNG)
   onSortChange(event: any) {
     let value = event.value;
 
@@ -61,6 +70,11 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  /**
+   * Function from PrimeNG providing the avalaibility of a product
+   * @param product 
+   * @returns {string}
+   */
   getSeverity (product: Product) {
     switch (product.inventoryStatus) {
         case 'INSTOCK':
