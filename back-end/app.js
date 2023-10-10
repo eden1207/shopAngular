@@ -1,33 +1,51 @@
 const express = require('express');
-/**package pour communiquer avec MongoDB pour la création d'une base de données */
-const mongoose = require('mongoose');
-
-const productsRoutes = require('./routes/products');
-
-/** Connexion à MongoDB avec un identifiant */
-mongoose.connect('mongodb+srv://User0:ZHp_x2k5GmSx9Rf@cluster0.zjznku3.mongodb.net/?retryWrites=true&w=majority',
-  { useNewUrlParser: true,
-    useUnifiedTopology: true })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUI = require ('swagger-ui-express');
 
 const app = express();
 
-/** Middleware servant de requête. Quand on met next, c'est pour passer à la requête suivante
- * sinon ça freeze
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Test API Alten Shop',
+      version: '1.0.0'
+    }
+  },
+  apis: ['app.js'],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+
+/** 
+ * Middleware to create a test of the API thanks to swagger 
+ * Here, the test is on localhost:3000/api-docs
+ */
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
+/**
+ * @swagger
+ * /api/products:
+ *             get:
+ *                description: get all products
+ *                responses: 
+ *                        200:
+ *                           description: Success
  */
 
 /** 
- * Middleware pour détecter les fichiers au format json, comme quand on reçoit 
- * un json dans une méthode POST
- * On peut aussi mettre app.use(bodyParser.json()) en ayant mis au début const bodyParser = require(body-parser)
+ * Middleware used for different requests
+ */
+
+/** 
+ * Middleware used to detect json file, for example when we receive a file from a POST method
+ * We can also use app.use(bodyParser.json()) after const bodyParser = require(body-parser)
  */
 app.use(express.json());
 
 /**
- * Middleware pour éviter les problèmes de CORS lors de requête API sur le site.
- * S'applique à toutes les routes.
- * Cela évite les bug liés à la sécurité qui empêchent les fausses requêtes pour attaquer le site 
+ * Middleware used to avoid CORS problems during API requests on the website
+ * It is used for all routes of the API
+ * It avoids any bug due to security against website attacks 
  */
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -36,11 +54,8 @@ app.use((req, res, next) => {
     next();
 });
 
-/** On définit toutes les routes avec les méthodes GET, PUT, etc associées. */
-/*app.use('api/products', productsRoutes);*/ //en attendant --> ajout ci-dessous
-
-/**Ajout test */
-app.use('/api/products', (req, res, next) => {
+/** Middleware of the GET endpoint */
+app.get('/api/products', (req, res, next) => {
   const products = [
     {
       "id": 1000,
@@ -404,6 +419,134 @@ app.use('/api/products', (req, res, next) => {
     },
   ];
   res.status(200).json(products);
+});
+
+/** Middleware of the POST endpoint */
+/**
+ * @swagger
+ * /api/products:
+ *             post:
+ *                description: add a product
+ *                parameters:
+ *                      - name: name
+ *                        description: product name
+ *                        in: formData
+ *                        required: true
+ *                        type: string
+ *                      - name: description
+ *                        description: product description
+ *                        in: formData
+ *                        required: false
+ *                        type: string
+ *                      - name: price
+ *                        description: product price
+ *                        in: formData
+ *                        required: false
+ *                        type: number
+ *                      - name: quantity
+ *                        description: product quantity
+ *                        in: formData
+ *                        required: false
+ *                        type: number
+ *                responses: 
+ *                        201:
+ *                           description: Success
+ */
+app.post('/api/products', (req, res, next) => {
+  // Displays on the terminal the created product
+  console.log(req.body);
+  // Displays a message in the console
+  res.status(201).json({
+    message: 'Nouveau produit créé !'
+  });
+});
+
+/** Middleware of the PUT endpoint */
+/** 
+ * @swagger
+ * /api/products/1000:
+ *             put:
+ *                description: modify a product
+ *                parameters:
+ *                      - name: name
+ *                        description: product name
+ *                        in: formData
+ *                        value: Bamboo Watch
+ *                        required: false
+ *                        type: string
+ *                      - name: description
+ *                        description: product description
+ *                        in: formData
+ *                        value: Product Description
+ *                        required: false
+ *                        type: string
+ *                      - name: price
+ *                        description: product price
+ *                        in: formData
+ *                        value: 65.00
+ *                        required: false
+ *                        type: number
+ *                      - name: quantity
+ *                        description: product quantity
+ *                        in: formData
+ *                        value: 24
+ *                        required: false
+ *                        type: number
+ *                responses: 
+ *                        201:
+ *                           description: Success
+ */
+app.put('/api/products/:id', (req, res, next) => {
+  // Displays on the terminal the modified product
+  console.log(req.body);
+  // Displays a message in the console
+  res.status(201).json({
+    message: `${'Produit '+ req.params.id + ' modifié !'}`
+  });
+});
+
+/** Middleware of the DELETE endpoint */
+/** 
+ * @swagger
+ * /api/products/1000:
+ *             delete:
+ *                description: delete a product
+ *                parameters:
+ *                      - name: name
+ *                        description: product name
+ *                        in: formData
+ *                        value: Bamboo Watch
+ *                        required: false
+ *                        type: string
+ *                      - name: description
+ *                        description: product description
+ *                        in: formData
+ *                        value: Product Description
+ *                        required: false
+ *                        type: string
+ *                      - name: price
+ *                        description: product price
+ *                        in: formData
+ *                        value: 65.00
+ *                        required: false
+ *                        type: number
+ *                      - name: quantity
+ *                        description: product quantity
+ *                        in: formData
+ *                        value: 24
+ *                        required: false
+ *                        type: number
+ *                responses: 
+ *                        201:
+ *                           description: Success
+ */
+app.delete('/api/products/:id', (req, res, next) => {
+  // Displays on the terminal the deleted product
+  console.log(req.body);
+  // Displays a message in the console
+  res.status(201).json({
+    message: `${'Produit '+ req.params.id + ' supprimé !'}`
+  });
 });
 
 module.exports = app;
