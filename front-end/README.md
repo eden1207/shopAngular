@@ -1,34 +1,57 @@
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Json server
+## How to run the project locally :
 
 
+### Clone the projet:
 
-## Code scaffolding
+In order to install the project locally, please, fork the repository:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+https://github.com/eden1207/shopAngular
+```
 
-## Build
+Then,
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+git clone https://github.com/eden1207/shopAngular.git
+```
 
-## serve a Build
+### Go to the project directory :
 
-$ npm i -g serve
-$ cd dist/product-trial
-\$ serve
+For the back-end part, all details are given in the READ.ME of the Back-end folder but usually, when all dependencies are installed, go to the back-end folder,
 
-## Running unit tests
+```
+cd back-end
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Run the API :
 
-## Running end-to-end tests
+and run the API as described in the back-end README
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Access to the front-end part :
 
-## Further help
+When you are in the project folder, please, go the the front-end folder,
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+cd front-end
+```
+
+### Run the project :
+
+First of all, please, install the dependencies,
+
+```
+npm install
+```
+
+Then, run the project by using the following command,
+
+```
+ng serve
+```
+
+The app should now be running at http://locahost:4200.
+
+
+## API Documentation
+
+To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3000/api-docs

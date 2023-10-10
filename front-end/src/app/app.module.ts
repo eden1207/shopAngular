@@ -15,11 +15,16 @@ import { SharedModule } from 'app/shared/shared.module';
  * thanks to the library PrimeNG
  * ProductsComponent and ProductsAdminComponent are the componants I have created to display the
  * data of the products page and the admin-products page
+ * FormsModule and RadioButtonModule are usefull for the form to create a new product on the admin-products page
+ * ConfirmationService and MessageService are used to confirm I want to delete a product on the admin-products page
  */
 import { DataViewModule } from 'primeng/dataview';
 import { TableModule } from 'primeng/table';
 import { ProductsComponent } from './products/products.component';
 import { ProductsAdminComponent } from './products-admin/products-admin.component';
+import { FormsModule } from '@angular/forms';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [AppComponent, ProductsComponent, ProductsAdminComponent],
@@ -31,10 +36,14 @@ import { ProductsAdminComponent } from './products-admin/products-admin.componen
     SharedModule,
     BaseModule,
     DataViewModule,
-    TableModule
+    TableModule,
+    FormsModule,
+    RadioButtonModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'en' }
+    { provide: LOCALE_ID, useValue: 'en' },
+    ConfirmationService, 
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

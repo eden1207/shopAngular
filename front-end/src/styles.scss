@@ -504,6 +504,16 @@ app-footer {
   color: #495057;
 }
 
+.p-disabled, .p-component:disabled{
+  opacity: 1;
+}
+
+.p-button.p-button-danger, 
+.p-buttonset.p-button-danger > .p-button, 
+.p-splitbutton.p-button-danger > .p-button {
+  border: none;
+}
+
 .p-button.p-button-danger:enabled:hover, 
 .p-buttonset.p-button-danger > .p-button:enabled:hover, 
 .p-splitbutton.p-button-danger > .p-button:enabled:hover {

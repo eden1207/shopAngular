@@ -7,8 +7,10 @@
         currentPageReportTemplate: idem but for the message
         layout: if you want to display the cards with a grid method
         sortField, sortOrder: parameters used for the sorting function -->
+
+        <!--[value]="filteredProducts"-->
     <p-dataView 
-        [value]="filteredProducts" 
+        [value]="filteredProducts$ | async" 
         [paginator]="true" 
         [rows]="10" 
         [rowsPerPageOptions]="[10,25,50]" 
